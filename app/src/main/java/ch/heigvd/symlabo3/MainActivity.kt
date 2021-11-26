@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         // Binding components
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
         // Adding listeners on buttons to navigate through activities
         binding.btnCodeBarre.setOnClickListener{

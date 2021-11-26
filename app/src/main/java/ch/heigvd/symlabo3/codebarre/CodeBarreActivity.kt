@@ -17,8 +17,6 @@ class CodeBarreActivity : AppCompatActivity() {
         // Binding components
         binding = ActivityCodeBarreBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-
+        
     }
 }
