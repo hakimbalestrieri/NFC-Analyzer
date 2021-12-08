@@ -14,6 +14,12 @@ import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.DefaultDecoderFactory
 import java.util.*
 
+import android.widget.ImageView
+
+import android.graphics.Bitmap
+import android.graphics.Color
+import android.view.View
+
 
 class CodeBarreActivity : AppCompatActivity() {
 
@@ -33,8 +39,12 @@ class CodeBarreActivity : AppCompatActivity() {
         val formats: Collection<BarcodeFormat> = Arrays.asList(BarcodeFormat.QR_CODE, BarcodeFormat.CODE_39)
         binding.videoView.decoderFactory = DefaultDecoderFactory(formats)
         binding.videoView.initializeFromIntent(Intent())
+
         binding.videoView.decodeContinuous { result ->
+
             binding.txtCodeDecode.text = result?.result?.text
+            binding.imgCode.setImageBitmap(result?.getBitmapWithResultPoints((Color.BLACK)))
+            //imageView.setImageBitmap(result.getBitmapWithResultPoints(Color.YELLOW));
         }
         
     }

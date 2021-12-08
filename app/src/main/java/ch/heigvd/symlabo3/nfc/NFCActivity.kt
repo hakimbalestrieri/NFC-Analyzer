@@ -3,15 +3,13 @@ package ch.heigvd.symlabo3.nfc
 
 import android.Manifest
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.nfc.NfcAdapter
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
->>>>>>> 0001ef2631236ccc56cc5dead789799a03db1036
+
 import ch.heigvd.symlabo3.R
 import ch.heigvd.symlabo3.databinding.ActivityNfcactivityBinding
 
