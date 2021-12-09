@@ -25,7 +25,6 @@ class CodeBarreActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCodeBarreBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_code_barre)
