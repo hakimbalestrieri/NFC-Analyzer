@@ -63,6 +63,4 @@ class CodeBarreActivity : AppCompatActivity() {
             Toast.makeText(this@CodeBarreActivity, "Permission already granted", Toast.LENGTH_SHORT).show()
         }
     }
-
-
 }
