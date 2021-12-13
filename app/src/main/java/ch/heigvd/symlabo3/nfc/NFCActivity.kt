@@ -1,42 +1,34 @@
 package ch.heigvd.symlabo3.nfc
 
 import android.Manifest
-import android.content.pm.PackageManager
+import android.app.PendingIntent
+import android.content.Intent
+import android.content.IntentFilter
+import android.content.IntentFilter.MalformedMimeTypeException
 import android.nfc.NfcAdapter
+import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import ch.heigvd.symlabo3.R
-import ch.heigvd.symlabo3.databinding.ActivityNfcactivityBinding
-import android.content.IntentFilter
+import ch.heigvd.symlabo3.Utils
+import ch.heigvd.symlabo3.databinding.NfcActivityBinding
 
-import android.content.Intent
-
-import android.app.PendingIntent
-import android.content.IntentFilter.MalformedMimeTypeException
-import android.nfc.Tag
-import android.nfc.tech.Ndef
-import android.util.Log
-
-
+/**
+ * NFC activity
+ * @author Allemann, Balestrieri, Gomes
+ */
 class NFCActivity : AppCompatActivity() {
-
-    companion object {
-        val MIME_TEXT_PLAIN = "text/plain"
-        val TAG = "NFCActivity"
-    }
-
-    private lateinit var binding: ActivityNfcactivityBinding
+    private lateinit var binding: NfcActivityBinding
     private lateinit var mNfcAdapter: NfcAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_nfcactivity)
+        setContentView(R.layout.nfc_activity)
 
         // Binding components
-        binding = ActivityNfcactivityBinding.inflate(layoutInflater)
+        binding = NfcActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this)
@@ -47,9 +39,9 @@ class NFCActivity : AppCompatActivity() {
             return
         }
 
-        checkPermission(Manifest.permission.NFC, 1)
+        Utils.checkPermission(Manifest.permission.NFC, 1, this@NFCActivity)
 
-        if (mNfcAdapter.isEnabled()) {
+        if (mNfcAdapter.isEnabled) {
             Toast.makeText(this, "NFC enabled", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, "NFC disabled", Toast.LENGTH_LONG).show()
@@ -92,7 +84,6 @@ class NFCActivity : AppCompatActivity() {
 
     private fun setupForegroundDispatch() {
         if (mNfcAdapter == null) return
-
         val intent = Intent(this.applicationContext, this.javaClass)
         intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
         val pendingIntent = PendingIntent.getActivity(this.applicationContext, 0, intent, 0)
@@ -113,21 +104,8 @@ class NFCActivity : AppCompatActivity() {
         if (mNfcAdapter != null) mNfcAdapter.disableForegroundDispatch(this)
     }
 
-    private fun checkPermission(permission: String, requestCode: Int) {
-        if (ContextCompat.checkSelfPermission(
-                this@NFCActivity,
-                permission
-            ) == PackageManager.PERMISSION_DENIED
-        ) {
-            // Requesting the permission
-            ActivityCompat.requestPermissions(
-                this@NFCActivity,
-                arrayOf(permission),
-                requestCode
-            )
-        } else {
-            Toast.makeText(this@NFCActivity, "Permission already granted", Toast.LENGTH_SHORT)
-                .show()
-        }
+    companion object {
+        const val TAG = "NFCActivity"
+        const val MIME_TEXT_PLAIN = "text/plain"
     }
 }

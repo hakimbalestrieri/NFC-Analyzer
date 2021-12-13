@@ -5,6 +5,11 @@
       <map>
         <entry key="..\:/Developments/HEIG-VD/SYM-Labo03/app/src/main/res/layout/activity_ibeacon.xml" value="0.15307971014492755" />
         <entry key="..\:/Developments/HEIG-VD/SYM-Labo03/app/src/main/res/layout/activity_nfcactivity.xml" value="0.22" />
+        <entry key="..\:/Developments/HEIG-VD/SYM-Labo03/app/src/main/res/layout/barcode_activity.xml" value="0.16354166666666667" />
+        <entry key="..\:/Developments/HEIG-VD/SYM-Labo03/app/src/main/res/layout/beacon_activity.xml" value="0.16354166666666667" />
+        <entry key="..\:/Developments/HEIG-VD/SYM-Labo03/app/src/main/res/layout/main_activity.xml" value="0.16354166666666667" />
+        <entry key="..\:/Developments/HEIG-VD/SYM-Labo03/app/src/main/res/layout/nfc_activity.xml" value="0.16354166666666667" />
+        <entry key="..\:/Developments/HEIG-VD/SYM-Labo03/app/src/main/res/layout/nfc_authenticated_activity.xml" value="0.17552083333333332" />
         <entry key="..\:/Developments/HEIG-VD/SYM-Labo03/app/src/main/res/mipmap-anydpi-v26/NFC.xml" value="0.19166666666666668" />
       </map>
     </option>

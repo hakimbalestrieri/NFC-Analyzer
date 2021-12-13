@@ -1,25 +1,24 @@
 package ch.heigvd.symlabo3.nfc
 
-import android.R.attr
+import android.nfc.NdefRecord
 import android.nfc.Tag
+import android.nfc.tech.Ndef
 import android.os.Handler
 import android.os.Looper
-import android.nfc.NdefRecord
-
-import android.nfc.NdefMessage
-
-import android.R.attr.tag
-
-import android.nfc.tech.Ndef
+import android.util.Log
 import java.io.UnsupportedEncodingException
 import java.util.*
 
-
+/**
+ * NFC tag reader manager
+ * @author Allemann, Balestrieri, Gomes
+ */
 class NFCReaderManager(var communicationEventListener: CommunicationEventListener) {
-    companion object {
-        private val HANDLER = Handler(Looper.getMainLooper())
-    }
 
+    /**
+     * Read a given NFC tag tnf well know messages
+     * @param tag who contains tnf well know messages
+     */
     fun readNFCTag(tag: Tag) {
         Thread {
             var messages = mutableListOf<String>()
@@ -34,20 +33,26 @@ class NFCReaderManager(var communicationEventListener: CommunicationEventListene
                         )
                     ) {
                         try {
-                            messages.add(String(
-                                ndefRecord.payload,
-                                3,
-                                ndefRecord.payload.size - 3,
-                            ))
+                            messages.add(
+                                String(
+                                    ndefRecord.payload,
+                                    OFFSET_LENGTH,
+                                    ndefRecord.payload.size - OFFSET_LENGTH,
+                                )
+                            )
                         } catch (e: UnsupportedEncodingException) {
-//                            Log.e(TAG, "Unsupported Encoding", e)
+                            Log.e(TAG, "Unsupported Encoding", e)
                         }
                     }
                 }
                 HANDLER.post { communicationEventListener.handleTagRead(messages) }
-
-
             }
         }.start()
+    }
+
+    companion object {
+        private val HANDLER = Handler(Looper.getMainLooper())
+        const val TAG = "NFCReaderManager"
+        const val OFFSET_LENGTH = 3
     }
 }

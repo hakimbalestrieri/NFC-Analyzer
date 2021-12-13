@@ -7,7 +7,7 @@ interface CommunicationEventListener {
 
     /**
      * Handle tag read
-     * @param nfcValue read
+     * @param nfcValues values read
      */
-    fun handleTagRead(nfcValue: MutableList<String>)
+    fun handleTagRead(nfcValues: MutableList<String>)
 }

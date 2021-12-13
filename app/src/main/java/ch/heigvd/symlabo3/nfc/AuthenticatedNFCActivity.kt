@@ -5,19 +5,22 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import ch.heigvd.symlabo3.R
-import ch.heigvd.symlabo3.databinding.ActivityNfcactivityBinding
+import ch.heigvd.symlabo3.databinding.NfcAuthenticatedActivityBinding
 
+/**
+ * Authenticated NFC activity
+ * @author Allemann, Balestrieri, Gomes
+ */
 class AuthenticatedNFCActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityNfcactivityBinding
+    private lateinit var binding: NfcAuthenticatedActivityBinding
     private lateinit var mNfcAdapter: NfcAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_nfcactivity)
+        setContentView(R.layout.nfc_authenticated_activity)
 
         // Binding components
-        binding = ActivityNfcactivityBinding.inflate(layoutInflater)
+        binding = NfcAuthenticatedActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this)
