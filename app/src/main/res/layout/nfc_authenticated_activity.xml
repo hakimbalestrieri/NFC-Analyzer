@@ -8,15 +8,34 @@
     tools:context=".nfc.NFCActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/maxSecurityButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/connect"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        android:text="MAX SECURITY"
+        app:layout_constraintBottom_toTopOf="@+id/mediumSecurityButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/mediumSecurityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MEDIUM SECURITY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/minSecurityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="MIN SECURITY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mediumSecurityButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

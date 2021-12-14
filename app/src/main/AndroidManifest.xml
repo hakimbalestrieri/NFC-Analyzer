@@ -22,6 +22,9 @@
             android:name=".nfc.NFCActivity"
             android:exported="true" />
         <activity
+            android:name=".nfc.AuthenticatedNFCActivity"
+            android:exported="true" />
+        <activity
             android:name=".beacon.BeaconActivity"
             android:exported="true" />
         <activity
