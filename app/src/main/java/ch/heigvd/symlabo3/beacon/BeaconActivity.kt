@@ -1,8 +1,10 @@
 package ch.heigvd.symlabo3.beacon
 
 import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import ch.heigvd.symlabo3.R
@@ -34,30 +36,31 @@ class BeaconActivity : AppCompatActivity(), RangeNotifier {
         beaconManager = BeaconManager.getInstanceForApplication(this)
         beaconManager.addRangeNotifier(this)
         beaconManager.beaconParsers.add(beaconParser)
-        beaconManager.startRangingBeacons(REGION)
     }
 
     override fun onResume() {
         super.onResume()
-        beaconManager.stopRangingBeacons(REGION)
+        beaconManager.startRangingBeacons(REGION)
     }
 
     override fun onPause() {
         super.onPause()
+        beaconManager.stopRangingBeacons(REGION)
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
         beaconManager.startRangingBeacons(REGION)
     }
 
     override fun didRangeBeaconsInRegion(beacons: MutableCollection<Beacon>?, region: Region?) {
         if (beacons != null) {
             Log.d(TAG, "Ranged: ${beacons.count()} beacons")
-            for (beacon: Beacon in beacons) {
-                Log.d(TAG, "$beacon about ${beacon.distance} meters away")
-                Toast.makeText(
-                    this,
-                    "$beacon about ${beacon.distance} meters away",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
+            binding.lstBeacons.adapter =
+                ArrayAdapter(this, android.R.layout.simple_list_item_1, beacons.map {
+                            "ID : ${it.id1}\nRSSI : ${it.rssi} \nMajor number : ${it.id2}\n" +
+                            "Minor number : ${it.id3}\nDistance : ${it.distance}"
+                })
         }
     }
 
