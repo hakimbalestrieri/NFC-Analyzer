@@ -9,7 +9,7 @@ import ch.heigvd.symlabo3.databinding.MainActivityBinding
 import ch.heigvd.symlabo3.nfc.NFCActivity
 
 /**
- * NFC tag reader manager
+ * Main activity
  * @author Allemann, Balestrieri, Gomes
  */
 class MainActivity : AppCompatActivity() {

@@ -13,7 +13,7 @@ import ch.heigvd.symlabo3.databinding.BeaconActivityBinding
 import org.altbeacon.beacon.*
 
 /**
- * iBeacon activity
+ * Beacon activity
  * @author Allemann, Balestrieri, Gomes
  */
 class BeaconActivity : AppCompatActivity(), RangeNotifier {
