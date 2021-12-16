@@ -26,7 +26,7 @@ Cela nécessite à un tiers (ici le serveur) d'authentifier les beacons.
 
 #### 2.4.2 Utilisation d'un iBeacon
 
-L'utilisation d'un iBeacon pour attester que l'utilisateur possède le tag est une solution peut efficace car le signal de l'iBeacon peut être lu par un attaquant et copié. En effet, il est très facile de simuler des iBeacons grâce à des applications mobiles. De plus, si l'attaquant se trouve à proximité du possesseur de l'iBeacon et qu'il est en mesure de recevoir les fréquences émises par ce dernier, alors il pourra alors tout de même s'authentifier.
+L'utilisation d'un iBeacon pour attester que l'utilisateur possède le tag est une solution peu efficace car le signal de l'iBeacon peut être lu par un attaquant et copié. En effet, il est très facile de simuler des iBeacons grâce à des applications mobiles. De plus, si l'attaquant se trouve à proximité du possesseur de l'iBeacon et qu'il est en mesure de recevoir les fréquences émises par ce dernier, alors il pourra alors tout de même s'authentifier.
 
 ### 3. QR-Codes
 
@@ -56,18 +56,18 @@ Les codes QR statiques sont utiles dans les situations où le code QR n'a pas bes
 
 Les codes QR dynamiques sont modifiables et offrent plus de fonctionnalités que les codes QR statiques. En effet, ils ont une URL courte intégrée dans le code qui peut rediriger l'utilisateur vers l'URL du contenu. Ainsi l'url à laquelle rediriger l'utilisateur peut être modifiée même après que le QR-Code ait été généré. De plus, cela permet d'obtenir les statistiques de scan telles que la date et le lieu de chaque scan, leur nombre total ou encore le système d'exploitation de l'appareil lisant le code.
 
-Pour utiliser cela, il est nécessaire de pouvoir atteindre l'URL qui nous redirigera vers la ressource voulue. Ainsi, dans le cadre du développement mobile ce n'est pas adapté si l'application doit pouvoir être utilisée en l'absense d'une connexion internet.
+Pour utiliser cela, il est nécessaire de pouvoir atteindre l'URL qui nous redirigera vers la ressource voulue. Ainsi, dans le cadre du développement mobile ce n'est pas adapté si l'application doit pouvoir être utilisée en l'absence d'une connexion internet.
 
 ### 4. iBeacons
 
 Les iBeacons sont très souvent présentés comme une alternative à NFC.
 
-Cette affirmation n'est pas correcte. En effet, il est possible de trouver des cas d'utilisation où le choix entre un iBeacon et un tag NFC n'a que peut d'importance : 
+Cette affirmation n'est pas correcte. En effet, il est possible de trouver des cas d'utilisation où le choix entre un iBeacon et un tag NFC n'a que peu d'importance : 
 
 ex : accéder aux horaires à un arrêt de bus 
 
 - Via NFC : scan d'un tag à l'arrêt de bus
-- Via iBeacon : utilisation d'une application qui localiste l'utilisateur et affiche les horaires en fonction de l'iBeacon rencontré
+- Via iBeacon : utilisation d'une application qui localise l'utilisateur et affiche les horaires en fonction de l'iBeacon rencontré
 
 Cependant, d'autres cas d'utilisation ne permettent pas de choisir entre un iBeacon et un tag NFC :
 
